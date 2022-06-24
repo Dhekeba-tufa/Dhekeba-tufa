@@ -206,3 +206,207 @@ void startGame(){
     glVertex2f(lrIndex+30,8);
     glVertex2f(lrIndex+30,1);
     glEnd();
+
+
+//Opposite car 1
+    glColor3f(0.000, 0.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(lrIndex1+26-2,car1+100-4);
+    glVertex2f(lrIndex1+26-2,car1+100-6);
+    glVertex2f(lrIndex1+30+2,car1+100-6);
+    glVertex2f(lrIndex1+30+2,car1+100-4);
+    glEnd();
+    glColor3f(0.000, 0.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(lrIndex1+26-2,car1+100);
+    glVertex2f(lrIndex1+26-2,car1+100-2);
+    glVertex2f(lrIndex1+30+2,car1+100-2);
+    glVertex2f(lrIndex1+30+2,car1+100);
+    glEnd();
+    glColor3f(1.000, 0.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(lrIndex1+26,car1+100);
+    glVertex2f(lrIndex1+26,car1+100-7);
+    glVertex2f(lrIndex1+28,car1+100-9);
+    glVertex2f(lrIndex1+30,car1+100-7);
+    glVertex2f(lrIndex1+30,car1+100);
+    glEnd();
+    car1--;
+    if(car1<-100){
+        car1=0;
+        lrIndex1=lrIndex;
+    }
+    //KIll check car1
+    if((abs(lrIndex-lrIndex1)<8) && (car1+100<10)){
+            start = 0;
+            gv=1;
+
+    }
+
+    //Opposite car 2
+    glColor3f(0.000, 0.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(lrIndex2+26-2,car2+100-4);
+    glVertex2f(lrIndex2+26-2,car2+100-6);
+    glVertex2f(lrIndex2+30+2,car2+100-6);
+    glVertex2f(lrIndex2+30+2,car2+100-4);
+    glEnd();
+    glColor3f(0.000, 0.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(lrIndex2+26-2,car2+100);
+    glVertex2f(lrIndex2+26-2,car2+100-2);
+    glVertex2f(lrIndex2+30+2,car2+100-2);
+    glVertex2f(lrIndex2+30+2,car2+100);
+    glEnd();
+    glColor3f(0.294, 0.000, 0.510);
+    glBegin(GL_POLYGON);
+    glVertex2f(lrIndex2+26,car2+100);
+    glVertex2f(lrIndex2+26,car2+100-7);
+    glVertex2f(lrIndex2+28,car2+100-9);
+    glVertex2f(lrIndex2+30,car2+100-7);
+    glVertex2f(lrIndex2+30,car2+100);
+    glEnd();
+    car2--;
+    if(car2<-100){
+        car2=0;
+        lrIndex2=lrIndex;
+    }
+    //KIll check car2
+    if((abs(lrIndex-lrIndex2)<8) && (car2+100<10)){
+            start = 0;
+            gv=1;
+    }
+
+
+    //Opposite car 3
+    glColor3f(0.000, 0.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(lrIndex3+26-2,car3+100-4);
+    glVertex2f(lrIndex3+26-2,car3+100-6);
+    glVertex2f(lrIndex3+30+2,car3+100-6);
+    glVertex2f(lrIndex3+30+2,car3+100-4);
+    glEnd();
+    glColor3f(0.000, 0.000, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(lrIndex3+26-2,car3+100);
+    glVertex2f(lrIndex3+26-2,car3+100-2);
+    glVertex2f(lrIndex3+30+2,car3+100-2);
+    glVertex2f(lrIndex3+30+2,car3+100);
+    glEnd();
+    glColor3f(1.000, 0.271, 0.000);
+    glBegin(GL_POLYGON);
+    glVertex2f(lrIndex3+26,car3+100);
+    glVertex2f(lrIndex3+26,car3+100-7);
+    glVertex2f(lrIndex3+28,car3+100-9);
+    glVertex2f(lrIndex3+30,car3+100-7);
+    glVertex2f(lrIndex3+30,car3+100);
+    glEnd();
+    car3--;
+    if(car3<-100){
+        car3=0;
+        lrIndex3=lrIndex;
+    }
+    //KIll check car3
+    if((abs(lrIndex-lrIndex3)<8) && (car3+100<10)){
+            start = 0;
+            gv=1;
+
+    }
+
+}
+
+void fristDesign(){
+
+        //Road Backgound
+        glColor3f(0.000, 0.392, 0.000);
+        glBegin(GL_POLYGON);
+        glVertex2f(0,55);
+        glVertex2f(100,55);
+        glColor3f(0.604, 0.804, 0.196);
+        glVertex2f(100,50-50);
+        glVertex2f(0,50-50);
+        glEnd();
+
+
+
+        //Road Design In Front Page
+        glColor3f(00, 0, 0);
+        glBegin(GL_TRIANGLES);
+        glVertex2f(32-2+21,55);
+        glVertex2f(32+58,50-50);
+        glVertex2f(32-22,50-50);
+        glEnd();
+        //Road Midle
+        glColor3f(1, 1, 1);
+        glBegin(GL_TRIANGLES);
+        glVertex2f(32-2+21,55);
+        glVertex2f(50+2,50-50);
+        glVertex2f(50-2,50-50);
+        glEnd();
+
+         //Road Sky
+        glColor3f(0.000, 0.749, 1.000);
+        glBegin(GL_POLYGON);
+        glVertex2f(100,100);
+        glVertex2f(0,100);
+        glColor3f(0.686, 0.933, 0.933);
+        glVertex2f(0,55);
+        glVertex2f(100,55);
+        glEnd();
+
+        //Hill 1
+        glColor3f(0.235, 0.702, 0.443);
+        glBegin(GL_TRIANGLES);
+        glVertex2f(20,55+10);
+        glVertex2f(20+7,55);
+        glVertex2f(0,55);
+        glEnd();
+
+//Hill 2
+        glColor3f(0.000, 0.502, 0.000);
+        glBegin(GL_TRIANGLES);
+        glVertex2f(20+15,55+12);
+        glVertex2f(20+20+10,55);
+        glVertex2f(0+10,55);
+        glEnd();
+
+        //Hill 4
+        glColor3f(0.235, 0.702, 0.443);
+        glBegin(GL_TRIANGLES);
+        glVertex2f(87,55+10);
+        glVertex2f(100,55);
+        glVertex2f(60,55);
+        glEnd();
+
+         //Hill 3
+        glColor3f(0.000, 0.502, 0.000);
+        glBegin(GL_TRIANGLES);
+        glVertex2f(70,70);
+        glVertex2f(90,55);
+        glVertex2f(50,55);
+        glEnd();
+
+
+        //Tree Left
+            //Bottom
+        glColor3f(0.871, 0.722, 0.529);
+        glBegin(GL_TRIANGLES);
+        glVertex2f(11,55);
+        glVertex2f(12,55-10);
+        glVertex2f(10,55-10);
+        glEnd();
+            //Up
+      glColor3f(0.133, 0.545, 0.133);
+        glBegin(GL_TRIANGLES);
+        glVertex2f(11,55+3);
+        glVertex2f(12+3,55-3);
+        glVertex2f(10-3,55-3);
+        glEnd();
+
+
+
+
+        tree(5,-15);
+        tree(9,5);
+        tree(85,9);
+        tree(75,-5);
