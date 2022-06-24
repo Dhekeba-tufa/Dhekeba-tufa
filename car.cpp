@@ -277,7 +277,6 @@ void startGame(){
             gv=1;
     }
 
-
     //Opposite car 3
     glColor3f(0.000, 0.000, 0.000);
     glBegin(GL_POLYGON);
@@ -314,7 +313,6 @@ void startGame(){
     }
 
 }
-
 void fristDesign(){
 
         //Road Backgound
@@ -326,8 +324,6 @@ void fristDesign(){
         glVertex2f(100,50-50);
         glVertex2f(0,50-50);
         glEnd();
-
-
 
         //Road Design In Front Page
         glColor3f(00, 0, 0);
@@ -386,7 +382,6 @@ void fristDesign(){
         glVertex2f(50,55);
         glEnd();
 
-
         //Tree Left
             //Bottom
         glColor3f(0.871, 0.722, 0.529);
@@ -402,10 +397,7 @@ void fristDesign(){
         glVertex2f(12+3,55-3);
         glVertex2f(10-3,55-3);
         glEnd();
-
-
-
-
+    
         tree(5,-15);
         tree(9,5);
         tree(85,9);
