@@ -402,3 +402,197 @@ void fristDesign(){
         tree(9,5);
         tree(85,9);
         tree(75,-5);
+    Sarke, [6/24/2022 12:11 PM]
+//Menu Place Holder
+        glColor3f(0.098, 0.098, 0.439);
+        glBegin(GL_POLYGON);
+        glVertex2f(32-4,50+5+10);
+        glVertex2f(32+46,50+5+10);
+        glVertex2f(32+46,50-15+10);
+        glVertex2f(32-4,50-15+10);
+        glEnd();
+
+        glColor3f(00, 0, 0.000);
+        glBegin(GL_POLYGON);
+        glVertex2f(32-4,50+5+10);
+        glVertex2f(32+46,50+5+10);
+        glVertex2f(32+46,50+4+10);
+        glVertex2f(32-4,50+4+10);
+        glEnd();
+        glBegin(GL_POLYGON);
+        glVertex2f(32+45,50+5+10);
+        glVertex2f(32+46,50+5+10);
+        glVertex2f(32+46,50-15+10);
+        glVertex2f(32+45,50-15+10);
+        glEnd();
+        glBegin(GL_POLYGON);
+        glVertex2f(32-4,50-14+10);
+        glVertex2f(32+46,50-14+10);
+        glVertex2f(32+46,50-15+10);
+        glVertex2f(32-4,50-15+10);
+        glEnd();
+        glBegin(GL_POLYGON);
+        glVertex2f(32-4,50+5+10);
+        glVertex2f(32-5,50+5+10);
+        glVertex2f(32-5,50-15+10);
+        glVertex2f(32-4,50-15+10);
+        glEnd();
+
+
+
+        //Text Information in Frist Page
+        if(gv==1){
+            glColor3f(1.000, 0.000, 0.000);
+            renderBitmapString(35,60+10,(void *)font1,"GAME OVER");
+            glColor3f(1.000, 0.000, 0.000);
+            char buffer2 [50];
+            sprintf (buffer2, "Your Score is : %d", score);
+            renderBitmapString(33,60-4+10,(void *)font1,buffer2);
+
+        }
+
+        glColor3f(1.000, 1.000, 0.000);
+        renderBitmapString(30,80,(void *)font1,"2D Car Racing Game ");
+
+        glColor3f(0.000, 1.000, 0.000);
+        renderBitmapString(30,50+10,(void *)font2,"Press SPACE to START");
+        renderBitmapString(30,50-3+10,(void *)font2,"Press ESC to Exit");
+
+        glColor3f(1.000, 1.000, 1.000);
+        renderBitmapString(30,50-6+10,(void *)font3,"Press UP to increase Speed");
+        renderBitmapString(30,50-8+10,(void *)font3,"Press DWON to decrease Speed");
+        renderBitmapString(30,50-10+10,(void *)font3,"Press RIGHT to turn Right");
+        renderBitmapString(30,50-12+10,(void *)font3,"Press LEFT to turn Left");
+
+
+        glColor3f(0.000, 1.000, 1.000);
+        renderBitmapString(30-5,50-40,(void *)font3,"Project By:");
+        renderBitmapString(30-5,50-43,(void *)font3,"Zunaid Mahdi");
+
+
+}
+
+
+
+void display(){
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    if(start==1){
+        // glClearColor(0.627, 0.322, 0.176,1);
+
+        glClearColor(0.000, 0.392, 0.000,1);
+        startGame();
+    }
+
+    else{
+        fristDesign();
+        //glClearColor(0.184, 0.310, 0.310,1);
+
+
+
+    }
+
+
+
+    glFlush();
+    glutSwapBuffers();
+}
+
+
+
+void spe_key(int key, int x, int y){
+        switch (key) {
+        case GLUT_KEY_DOWN:
+            if(FPS>(50+(level*2)))
+            FPS=FPS-2;
+            break;
+        case GLUT_KEY_UP:
+            FPS=FPS+2;
+            break;
+
+        case GLUT_KEY_LEFT:
+            if(lrIndex>=0){
+                lrIndex = lrIndex - (FPS/10);
+                if(lrIndex<0){
+                    lrIndex=-1;
+                }
+            }
+            break;
+
+
+        case GLUT_KEY_RIGHT:
+            if(lrIndex<=44){
+                lrIndex = lrIndex + (FPS/10);
+                if(lrIndex>44){
+                    lrIndex = 45;
+                }
+            }
+            break;
+
+        default:
+                break;
+        }
+
+}
+
+void processKeys(unsigned char key, int x, int y) {
+
+      switch (key)
+            {
+                case ' ':
+            if(start==0){
+                start = 1;
+                gv = 0;
+                FPS = 50;
+                roadDivTopMost = 0;
+                roadDivTop = 0;
+                roadDivMdl = 0;
+                roadDivBtm = 0;
+                lrIndex = 0 ;
+                car1 = 0;
+                lrIndex1=0;
+                car2 = +35;
+                lrIndex2=0;
+                car3 = +70;
+                lrIndex3=0;
+                score=0;
+                level=0;
+            }
+             break;
+
+             case 27:
+                 exit(0);
+             break;
+             default:
+                break;
+        }
+}
+
+Sarke, [6/24/2022 12:11 PM]
+void timer(int){
+    glutPostRedisplay();
+    glutTimerFunc(1000/FPS,timer,0);
+}
+
+
+
+int main(int argc, char *argv[])
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
+    glutInitWindowSize(500,650);
+    glutInitWindowPosition(200,20);
+    glutCreateWindow("Car Game");
+
+    glutDisplayFunc(display);
+    glutSpecialFunc(spe_key);
+    glutKeyboardFunc(processKeys );
+
+    glOrtho(0,100,0,100,-1,1);
+    glClearColor(0.184, 0.310, 0.310,1);
+
+    glutTimerFunc(1000,timer,0);
+    glutMainLoop();
+
+    return 0;
+}
