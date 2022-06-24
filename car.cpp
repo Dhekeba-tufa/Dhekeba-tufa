@@ -48,4 +48,4 @@ void drawTextNum(char ch[],int numtext,int xpos, int ypos)//counting the score
     }
 }
  
- 
+ Hhehhdjhhd
